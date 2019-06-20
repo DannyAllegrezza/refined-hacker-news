@@ -28,11 +28,6 @@
 	box-shadow: inset -3px 0 #f7694c;
 }
 
-.__rhn__toggle-btn {
-	font-size: 10px;
-	text-decoration: underline !important;
-}
-
 .__rhn__no-display {
 	display: none;
 }
@@ -41,19 +36,24 @@
 	color: #f7694c !important;
 }
 
-.__rhn__highlight-me {
-	font-weight: bold;
-}
-
 .__rhn__options-bar {
-	margin-bottom: 5px;
-	padding-bottom: 5px;
 	padding-left: 10px;
-	border-bottom: 1px solid #ddd;
 	display: flex;
 	font-size: 13px;
 	color: #000;
 	align-items: center;
+}
+
+.__rhn__options-bar-top {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+.__rhn__options-bar-bottom {
+	margin-top: 5px;
+	padding-top: 10px;
+	border-top: 1px solid #ddd;
 }
 
 .__rhn__options-bar label {

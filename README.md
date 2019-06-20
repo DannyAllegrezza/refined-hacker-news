@@ -3,7 +3,10 @@
 [link-cws]: https://chrome.google.com/webstore/detail/gcibdgjaladjjloeocimnijdgopejkfk "Version published on Chrome Web Store"
 [link-amo]: https://addons.mozilla.org/en-US/firefox/addon/refined-hacker-news/ "Version published on Mozilla Add-ons"
 
-[![Licence](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE) ![Made with love in India](https://madewithlove.now.sh/in?heart=true&colorB=%23ff701f&template=flat-square)
+[![Licence](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE) 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/gcibdgjaladjjloeocimnijdgopejkfk.svg?label=chrome%20users&style=flat-square)][link-cws]
+[![Mozilla Add-on](https://img.shields.io/amo/users/refined-hacker-news.svg?label=firefox%20users&style=flat-square)][link-amo]
+![Made with love in India](https://madewithlove.now.sh/in?heart=true&colorB=%23ff701f&template=flat-square)
 
 > ✨ Browser extension that adds useful features and tweaks a few stuff on [Hacker News](https://news.ycombinator.com) to make the experience better... without changing the look and feel.
 
@@ -12,6 +15,26 @@ The minimalist design of Hacker News is best at offering news the way we like it
 Hopefully, in due course, a few of these tweaks can be implemented by Hacker News themselves. You can help too by emailing [hn@ycombinator.com](mailto:hn@ycombinator.com)!
 
 *Inspired by [Sindre Sorhus](https://github.com/sindresorhus)'s extension [Refined GitHub](https://github.com/sindresorhus/refined-github).*
+
+## Contents
+
+- [Contents](#contents)
+- [Install](#install)
+- [Highlights](#highlights)
+	- [Added features](#added-features)
+	- [UI tweaks](#ui-tweaks)
+	- [More actions](#more-actions)
+	- [More info at a glance](#more-info-at-a-glance)
+	- [Miscellaneous](#miscellaneous)
+	- [Keyboard bindings](#keyboard-bindings)
+		- [On items and comments](#on-items-and-comments)
+		- [On input fields](#on-input-fields)
+	- [Abandoned features](#abandoned-features)
+- [Customization and Options](#customization-and-options)
+- [Contribute](#contribute)
+- [Donate](#donate)
+- [Extension Permissions](#extension-permissions)
+- [License](#license)
 
 ## Install
 
@@ -99,7 +122,6 @@ Hopefully, in due course, a few of these tweaks can be implemented by Hacker New
   - Add border to indentation to make to show indent separation between comments
   - Custom indent-width (default is 40px), which can be set using the extension popup
   - Highlight item's original poster, displayed as `[op]` next to username
-  - Bolden your own comments' username.
 - [**`highlight-unread-comments`**](src/features/highlight-unread-comments.js) Highlight new and unread comments after your second and subsequent visits to the comments page of an item. Data resets after three days.
 - [**`linkify-user-about`**](src/features/linkify-user-about.js) Linkify all links and emails IDs that are on the "about" of the user's profile.
 
@@ -182,7 +204,7 @@ Hopefully, in due course, a few of these tweaks can be implemented by Hacker New
 - `scale-font-size`
 - `show-karma-left`
 
-## Customisation and Options
+## Customization and Options
 
 Extension options can be found in the extension's popup. There, you can
 
@@ -193,7 +215,7 @@ Extension options can be found in the extension's popup. There, you can
 
 Issues and feature requests can be created on the [issues page](https://github.com/plibither8/refined-hacker-news/issues).
 
-To create new features, please take a look at the format of any one of the features' file [here](src/features). Proper documentation for contributing is a work in progress. Thanks for the patience! 🙂
+For development contribution, please refer to the [contribution guide](./CONTRIBUTING.md).
 
 ## Donate
 
@@ -202,6 +224,24 @@ Refined Hacker News was made by me during my study-breaks and free time. If you 
 [![Donate](https://img.shields.io/badge/donate-PayPal-blue.svg?style=for-the-badge&logo=paypal)](https://paypal.me/plibither8)
 
 [![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png)](https://www.buymeacoffee.com/plibither8)
+
+## Extension Permissions
+
+No data is ever uploaded to a remote server, or is sent anywhere else. All data that is used by this extension is stored locally.
+
+**`storage`** Required to save extension options in `sync` storage area so that your options are synced across devices. Also used to save other data such as list of read comments (`highlight-unread-comments`) locally.
+
+**`history`** Required for `hide-read-stories` feature. The feature needs to check whether the story has been visited by you in the past, that is, whether that story is in your history.
+
+**`tabs`** Required to open a link in a new tab, but in the background. Also required to send and receive data between the extension popup, background scripts and the active Hacker News tabs.
+
+**`*://news.ycombinator.com/*`** Required to fetch subpages, submit forms, inline replies, etc.
+
+**`*://hacker-news.firebaseio.com/v0/*`** Hacker News API - required to fetch `item` and `user` details.
+
+**`*://textance.herokuapp.com/*`** Required by the `fetch-submission-title-from-url` feature to fetch the title.
+
+**`*://hn.algolia.com/*`** Required by `show-simillar-submission` and `list-hn-polls-separately` features to get filtered search results.
 
 ## License
 

@@ -24,8 +24,8 @@ function sort() {
 	}
 
 	const itemlistTable = document.querySelector('table.itemlist > tbody');
-	const moreRow = itemlistTable.lastChild;
-	const morespaceRow = moreRow.previousSibling;
+	const moreRow = itemlistTable.lastElementChild;
+	const morespaceRow = moreRow.previousElementSibling;
 
 	let extraItems = [];
 	if (window.location.pathname === '/show') {
@@ -45,8 +45,8 @@ function sort() {
 	itemlistTable.append(morespaceRow, moreRow);
 }
 
-function init() {
-	const optionsBar = createOptionsBar();
+function init(metadata) {
+	const optionsBar = createOptionsBar(metadata.options.optionsBarPosition);
 	const sortLabel = document.createElement('label');
 	const sortSelect = document.createElement('select');
 
@@ -77,7 +77,10 @@ const details = {
 	id: 'sort-stories',
 	pages: {
 		include: paths.stories,
-		exclude: ['/front']
+		exclude: [
+			'/front',
+			'/jobs'
+		]
 	},
 	loginRequired: false,
 	init
